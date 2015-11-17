@@ -1,85 +1,47 @@
 package evaldivieso.garvaapp.mvp.model;
 
-import com.parse.ParseObject;
-
-import java.util.Comparator;
-
 /**
- * Created by evaldivieso on 12/10/2015.
+ * Created by evaldivieso on 16/11/2015.
  */
-public class Dish extends ParseObject{
-    String nombre;
-    String descripcion;
-    //String tipo;
-    String precio;
-    String kcal;
-    boolean checked;
+public class Dish {
+    String name;
+    String desc;
+    double price;
+    double kCal;
 
-    public Dish() {
+    public Dish(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    /*
-    public String getTipo() {
-        return tipo;
+    public double getPrice() {
+        return price;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    */
-
-    public String getPrecio() {
-        return precio;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public double getkCal() {
+        return kCal;
     }
 
-    public String getKcal() {
-        return kcal;
+    public void setkCal(double kCal) {
+        this.kCal = kCal;
     }
-
-    public void setKcal(String kcal) {
-        this.kcal = kcal;
-    }
-
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
-    }
-
-    /*
-    public static Comparator<Plato> PlatoComparator = new Comparator<Plato>() {
-
-        public int compare(Plato s1, Plato s2) {
-            String tipo1 = s1.getTipo().toUpperCase();
-            String tipo2 = s2.getTipo().toUpperCase();
-
-            //ascending order
-            return tipo1.compareTo(tipo2);
-
-            //descending order
-            //return StudentName2.compareTo(StudentName1);
-        }};
-    */
 }

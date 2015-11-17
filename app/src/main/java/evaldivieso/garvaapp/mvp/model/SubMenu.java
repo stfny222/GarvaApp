@@ -1,32 +1,31 @@
 package evaldivieso.garvaapp.mvp.model;
 
-import com.parse.ParseObject;
-
 import java.util.List;
 
 /**
- * Created by evaldivieso on 15/10/2015.
+ * Created by evaldivieso on 16/11/2015.
  */
-public class SubMenu extends ParseObject {
-    String tipo;
-    List<Dish> dishs;
+public class SubMenu {
+    String name;
+    List<Dish> dishes;
 
-    public SubMenu() {
+    public SubMenu(String name) {
+        this.name = name;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getName() {
+        return name;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Dish> getDishs() {
-        return dishs;
+    public List<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setDishs(List<Dish> dishs) {
-        this.dishs = dishs;
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 }
