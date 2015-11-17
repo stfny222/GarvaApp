@@ -44,7 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:hint="@string/usuario" />
+                    android:hint="@string/usuario"
+                    android:inputType="text"/>
 
                 <EditText
                     android:id="@+id/etPassword"

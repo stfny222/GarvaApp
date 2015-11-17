@@ -1,5 +1,9 @@
 package evaldivieso.garvaapp.mvp.presenter;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 import evaldivieso.garvaapp.mvp.view.LoginView;
 
 public class LoginPresenter implements LoginPresenterIf {
@@ -13,10 +17,14 @@ public class LoginPresenter implements LoginPresenterIf {
 
     @Override
     public void login(String usuario, String password) {
-        if((usuario.equals("dtorres") || usuario.equals("evaldivieso")) && password.equals("123")){
-            view.onLoginCorrecto();
-        }else{
-            view.onLoginIncorrecto();
-        }
+        ParseUser.logInInBackground(usuario, password, new LogInCallback() {
+            public void done(ParseUser user, ParseException e) {
+                if (user != null) {
+                    view.onLoginCorrecto(user);
+                } else {
+                    view.onLoginIncorrecto();
+                }
+            }
+        });
     }
 }

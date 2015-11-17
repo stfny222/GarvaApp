@@ -44,7 +44,11 @@ public class ListadoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado);
         ButterKnife.bind(this);
-        toolbar.setTitle("GarvaApp");
+        String username = "";
+        if(getIntent().getExtras().getString("username")!= null){
+            username = getIntent().getExtras().getString("username");
+        }
+        toolbar.setTitle("Bienvenido " + username);
         setSupportActionBar(toolbar);
 
         getDishesList();

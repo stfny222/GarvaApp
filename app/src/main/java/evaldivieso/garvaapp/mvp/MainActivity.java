@@ -6,6 +6,7 @@ package evaldivieso.garvaapp.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -51,10 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin.setOnClickListener(this);
         tvRegistrar.setOnClickListener(this);
         tvInvitado.setOnClickListener(this);
-
-//        ParseObject testObject = new ParseObject("TestObject");
-//        testObject.put("foo", "bar");
-//        testObject.saveInBackground();
     }
 
     @Override
@@ -68,27 +66,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i("MainActivity", "Se hizo click en el botón Registrar");
             Toast.makeText(
                     this,
-                    "Opcion de Registrar... proximamente",
+                    "Llamar al caso de uso \"Registrar\"",
                     Toast.LENGTH_LONG
             ).show();
         }else{
             Log.i("MainActivity", "Se hizo click en el botón Ingresar cmo invitado");
-            Toast.makeText(
-                    this,
-                    "Opcion de Registrarse... proximamente",
-                    Toast.LENGTH_LONG
-            ).show();
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, ListadoActivity.class);
+            startActivity(intent);
         }
     }
 
     @Override
-    public void onLoginCorrecto() {
+    public void onLoginCorrecto(ParseUser user) {
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this,
-                ListadoActivity.class);
-        //intent.putExtra("username", etUsername.getText().toString());
-        ((ApplicationController) getApplication()).username = etUsername.getText().toString();
+        intent.setClass(MainActivity.this, ListadoActivity.class);
+        intent.putExtra("username", user.getString("name"));
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -96,8 +91,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onError(String msg) {
-        Toast.makeText(this, "Error :(", Toast.LENGTH_SHORT).show();
-    }
 }
