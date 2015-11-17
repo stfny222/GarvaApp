@@ -28,4 +28,12 @@ public class Menu {
     public void setSubMenus(List<SubMenu> subMenus) {
         this.subMenus = subMenus;
     }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "name='" + name + '\'' +
+                ", subMenus=" + subMenus +
+                '}';
+    }
 }

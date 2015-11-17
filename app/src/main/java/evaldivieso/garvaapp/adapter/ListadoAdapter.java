@@ -91,16 +91,18 @@ public class ListadoAdapter extends RecyclerView.Adapter<ListadoAdapter.ListadoV
             holder.tv_nombre.setText(current.getName());
         } else {
             holder.tv_nombre.setText(current.getDish().getName().toUpperCase());
-            holder.tv_desc.setText(current.getDish().getDesc());
+            if(holder.tv_desc!=null){
+                holder.tv_desc.setText(current.getDish().getDesc());
+            }
             holder.tv_precio.setText("S/. " + Double.toString(current.getDish().getPrice()));
-            holder.tv_kcal.setText(Double.toString(current.getDish().getkCal()) + "kCal");
+            holder.tv_kcal.setText(Double.toString(current.getDish().getkCal()) + " kCal");
 //            if (current.isChecked()) {
 //                holder.wrapper.setBackgroundResource(R.color.selected_item);
 //            } else {
 //                holder.wrapper.setBackgroundResource(R.color.item);
 //            }
-            holder.itemView.setOnClickListener(this);
-            holder.itemView.setOnLongClickListener(this);
+//            holder.itemView.setOnClickListener(this);
+//            holder.itemView.setOnLongClickListener(this);
             holder.itemView.setTag(current);
         }
     }

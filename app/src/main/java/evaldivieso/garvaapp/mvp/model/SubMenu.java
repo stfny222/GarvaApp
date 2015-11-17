@@ -28,4 +28,12 @@ public class SubMenu {
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
+
+    @Override
+    public String toString() {
+        return "SubMenu{" +
+                "name='" + name + '\'' +
+                ", dishes=" + dishes +
+                '}';
+    }
 }

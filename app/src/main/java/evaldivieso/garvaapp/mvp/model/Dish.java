@@ -44,4 +44,14 @@ public class Dish {
     public void setkCal(double kCal) {
         this.kCal = kCal;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", price=" + price +
+                ", kCal=" + kCal +
+                '}';
+    }
 }
